@@ -9,7 +9,15 @@ interface MenuItemPayload {
 
 export type MenuItem = MenuItemPayload & { priceInDollars: number };
 
+const delay = () =>
+  new Promise((resolve) =>
+    setTimeout(() => {
+      resolve(true);
+    }, 3000)
+  );
+
 export const fetchMenu = async (): Promise<MenuItem[]> => {
+  await delay();
   const response = await fetch(
     "https://burgerhub00.github.io/data/products.json"
   );

@@ -1,8 +1,6 @@
 import "server-only";
 import Image from "next/image";
 import { fetchMenuItemById } from "@/api";
-import { Card, Typography } from "antd";
-import "server-only";
 import BackButton from "@/components/back-button";
 import AddToCartButton from "@/components/add-to-cart";
 import Title from "antd/es/typography/Title";
@@ -22,8 +20,8 @@ export default async function MenuItemContainer({
       <Image
         src={item.image}
         alt={`Picture of ${item.name}`}
-        width={400}
-        height={400}
+        width={325}
+        height={350}
         className="rounded-md"
       />
       <Title>{item.name}</Title>

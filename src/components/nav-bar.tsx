@@ -1,37 +1,25 @@
-import "server-only";
 import React from "react";
-import { Avatar, Dropdown, Space } from "antd";
-import {
-  MessageOutlined,
-  ShoppingCartOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
 
 import Link from "next/link";
 import { Header } from "antd/es/layout/layout";
 import Search from "antd/es/input/Search";
-
-enum MenuItems {
-  Profile = "Profile",
-  Login = "Login",
-  Logout = "Logout",
-}
+import ViewCartButton from "./view-cart-button";
 
 export const NavBar = () => {
   return (
-    <Header className="flex">
-      <div className="flex-1">
-        <Link href="/" className="text-5xl">
-          🍔
-        </Link>
+    <Header className="grid grid-cols-2 grid-rows-[50px] content-center">
+      <div>
+        <div>
+          <Link href="/" className="text-5xl" title="Burger Hub">
+            🍔
+          </Link>
+        </div>
       </div>
-      <div className="flex-1 flex justify-end">
-        <div className="w-64">
+      <div className="flex justify-end gap-6">
+        <div className="w-64 flex items-center">
           <Search placeholder="Type to search..." />
         </div>
-        <Link href="/cart">
-          <ShoppingCartOutlined className="text-3xl" />
-        </Link>
+        <ViewCartButton />
       </div>
     </Header>
   );

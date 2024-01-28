@@ -25,6 +25,7 @@ export default function AddToCartButton({ menuItem }: { menuItem: MenuItem }) {
             placement: "top",
           });
         }}
+        type="primary"
       >
         Add to cart
       </Button>

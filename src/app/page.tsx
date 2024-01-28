@@ -1,27 +1,29 @@
+import "server-only";
 import Image from "next/image";
 import { Card, Col, Row } from "antd";
 import Meta from "antd/es/card/Meta";
-import "server-only";
 import Link from "next/link";
 import { fetchMenu } from "@/api";
+import ListGrid from "@/components/list-grid";
 
 export default async function Home() {
   const menuList = await fetchMenu();
 
-  // TODO: clean up grid, image and card dims
-  // TODO: move card to its own component
   return (
-    <Row gutter={16} className="p-4">
-      {menuList.map((item) => (
-        <Col span={4} key={item.id}>
+    <ListGrid
+      list={menuList}
+      renderItem={(item) => {
+        return (
           <Link href={`/menu-item/${item.id}`}>
             <Card
+              className="h-full"
               cover={
                 <Image
                   src={item.image}
                   alt={`Picture of ${item.name}`}
-                  width={400}
-                  height={400}
+                  width={300}
+                  height={300}
+                  priority
                 />
               }
             >
@@ -38,8 +40,8 @@ export default async function Home() {
               />
             </Card>
           </Link>
-        </Col>
-      ))}
-    </Row>
+        );
+      }}
+    />
   );
 }

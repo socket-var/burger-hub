@@ -8,7 +8,12 @@ export default function BackButton() {
 
   return (
     <Button
-      icon={<BackwardOutlined title="Go Back" onClick={() => router.back()} />}
+      onClick={() => {
+        console.log("going back");
+        router.back();
+      }}
+      icon={<BackwardOutlined title="Go Back" />}
+      danger
     >
       Go Back
     </Button>

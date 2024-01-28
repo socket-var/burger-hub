@@ -30,7 +30,7 @@ export default async function Home() {
                 description={
                   <div>
                     <div>
-                      <b>$ {item.price / 100}</b>
+                      <b>$ {item.priceInDollars}</b>
                     </div>
                     <div>{item.description}</div>
                   </div>

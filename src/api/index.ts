@@ -1,4 +1,4 @@
-export interface MenuItem {
+interface MenuItemPayload {
   id: string;
   name: string;
   price: number;
@@ -6,6 +6,8 @@ export interface MenuItem {
   description: string;
   calorie: number;
 }
+
+export type MenuItem = MenuItemPayload & { priceInDollars: number };
 
 export const fetchMenu = async (): Promise<MenuItem[]> => {
   const response = await fetch(
@@ -16,9 +18,12 @@ export const fetchMenu = async (): Promise<MenuItem[]> => {
     throw new Error(`HTTP error! Status: ${response.status}`);
   }
 
-  const data = await response.json();
+  const data: { products: MenuItemPayload[] } = await response.json();
 
-  return data.products;
+  return data.products.map((product) => ({
+    ...product,
+    priceInDollars: product.price / 100,
+  }));
 };
 
 export const fetchMenuItemById = async (id: string): Promise<MenuItem> => {

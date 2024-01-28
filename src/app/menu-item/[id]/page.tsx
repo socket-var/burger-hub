@@ -17,7 +17,7 @@ export default async function MenuItemContainer({
   const item = await fetchMenuItemById(params.id);
 
   return (
-    <div className="w-96 mx-auto my-16 grid gap-y-4 grid-cols-1 border border-slate-400 border-solid rounded-md p-8">
+    <div className="grid gap-y-4 grid-cols-1 ">
       <BackButton />
       <Image
         src={item.image}

@@ -1,19 +1,19 @@
 "use client";
 
 import {
-  CartItem,
   ShoppingCartContext,
   ShoppingCartDispatchContext,
 } from "@/context/shopping-cart";
 import { DeleteOutlined } from "@ant-design/icons";
 import { Avatar, Button, Divider, List, Typography } from "antd";
 import Title from "antd/es/typography/Title";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useContext, useMemo } from "react";
 
 export default function CartPage() {
   const { cart } = useContext(ShoppingCartContext);
   const { deleteFromCart } = useContext(ShoppingCartDispatchContext);
+  const router = useRouter();
 
   const cartTotalPrice: number = useMemo(() => {
     return cart.reduce((acc, item) => {
@@ -29,28 +29,33 @@ export default function CartPage() {
         itemLayout="horizontal"
         dataSource={cart}
         renderItem={(item) => (
-          <Link href={`/menu-item/${item.id}`}>
-            <List.Item>
-              <List.Item.Meta
-                avatar={<Avatar src={item.image} size={75} />}
-                title={
-                  <div>
-                    {item.name} ({item.count})
-                  </div>
-                }
-                description={
-                  <div className="flex justify-between">
-                    <div>${item.totalPrice}</div>
-                    <Button
-                      icon={<DeleteOutlined />}
-                      onClick={() => deleteFromCart(item.id)}
-                      danger
-                    />
-                  </div>
-                }
-              />
-            </List.Item>
-          </Link>
+          <List.Item
+            onClick={() => {
+              router.push(`/menu-item/${item.id}`);
+            }}
+          >
+            <List.Item.Meta
+              avatar={<Avatar src={item.image} size={75} />}
+              title={
+                <div>
+                  {item.name} ({item.count})
+                </div>
+              }
+              description={
+                <div className="flex justify-between">
+                  <div>${item.totalPrice}</div>
+                  <Button
+                    icon={<DeleteOutlined />}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      deleteFromCart(item.id);
+                    }}
+                    danger
+                  />
+                </div>
+              }
+            />
+          </List.Item>
         )}
       />
       {!!cart.length && (

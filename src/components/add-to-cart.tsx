@@ -1,12 +1,8 @@
 "use client";
 import { MenuItem } from "@/api";
-import {
-  ShoppingCartContext,
-  ShoppingCartDispatchContext,
-} from "@/context/shopping-cart";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartDispatchContext } from "@/context/shopping-cart";
 import { Button, notification } from "antd";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 export default function AddToCartButton({ menuItem }: { menuItem: MenuItem }) {
   const [api, contextHolder] = notification.useNotification();
@@ -17,6 +13,7 @@ export default function AddToCartButton({ menuItem }: { menuItem: MenuItem }) {
     <>
       {contextHolder}
       <Button
+        data-qa="add-to-cart-button"
         onClick={() => {
           addToCart(menuItem);
           api.success({

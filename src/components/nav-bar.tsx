@@ -10,7 +10,13 @@ export const NavBar = () => {
     <Header className="grid grid-cols-2 grid-rows-[50px] content-center">
       <div>
         <div>
-          <Link href="/" className="text-5xl" title="Burger Hub">
+          <Link
+            href="/"
+            className="text-5xl"
+            title="Burger Hub"
+            role="navigation"
+            aria-label="Main"
+          >
             🍔
           </Link>
         </div>

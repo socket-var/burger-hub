@@ -5,7 +5,7 @@ import "antd/dist/reset.css";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { NavBar } from "@/components/nav-bar";
-import ShoppingCartProvider from "@/context/shopping-cart";
+import { ShoppingCartProvider } from "@/context/shopping-cart";
 import { ConfigProvider } from "antd";
 
 const inter = Inter({ subsets: ["latin"] });

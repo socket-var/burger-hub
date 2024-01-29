@@ -1,6 +1,6 @@
 import "server-only";
 import Image from "next/image";
-import { Card, Col, Row } from "antd";
+import { Card } from "antd";
 import Meta from "antd/es/card/Meta";
 import Link from "next/link";
 import { fetchMenu } from "@/api";

@@ -17,7 +17,7 @@ export default function ViewCartButton() {
   }, [cart]);
 
   return (
-    <Link href="/cart">
+    <Link href="/cart" role="button" title="Go to cart">
       <Badge count={totalItems}>
         <ShoppingCartOutlined className="text-3xl" />
       </Badge>

@@ -45,6 +45,7 @@ export default function CartPage() {
                 <div className="flex justify-between">
                   <div>${item.totalPrice}</div>
                   <Button
+                    aria-label="Delete Menu Item"
                     icon={<DeleteOutlined />}
                     onClick={(event) => {
                       event.stopPropagation();
@@ -62,7 +63,8 @@ export default function CartPage() {
         <>
           <Divider />
           <Typography.Text className="font-bold">
-            Total price: ${cartTotalPrice}
+            Total price: ${" "}
+            <span data-qa="cart-total-price">{cartTotalPrice}</span>
           </Typography.Text>
         </>
       )}

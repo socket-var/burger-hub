@@ -17,7 +17,7 @@ const delay = () =>
   );
 
 export const fetchMenu = async (): Promise<MenuItem[]> => {
-  await delay();
+  // await delay();
   const response = await fetch(
     "https://burgerhub00.github.io/data/products.json"
   );

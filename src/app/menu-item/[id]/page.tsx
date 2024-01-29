@@ -35,6 +35,7 @@ export default async function MenuItemContainer({
       <Title>{item.name}</Title>
       <Text strong>${item.priceInDollars}</Text>
       <Paragraph>{item.description}</Paragraph>
+      <Paragraph>Nutrition: {item.calorie}</Paragraph>
       <AddToCartButton menuItem={item} />
     </div>
   );

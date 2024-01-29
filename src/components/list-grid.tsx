@@ -24,32 +24,6 @@ function renderItemInternal<T>(
 ): ReactNode {
   return (
     <Col xs={24} sm={12} md={12} lg={8} xl={4} key={index}>
-      {/* <Link href={`/menu-item/${item.id}`}>
-          <Card
-            className="h-full"
-            cover={
-              <Image
-                src={item.image}
-                alt={`Picture of ${item.name}`}
-                width={300}
-                height={300}
-                priority
-              />
-            }
-          >
-            <Meta
-              title={item.name}
-              description={
-                <div>
-                  <div>
-                    <b>$ {item.priceInDollars}</b>
-                  </div>
-                  <div>{item.description}</div>
-                </div>
-              }
-            />
-          </Card>
-        </Link> */}
       {renderItem(item)}
     </Col>
   );

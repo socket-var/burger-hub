@@ -1,4 +1,4 @@
-import { CartItem } from "./";
+import { CartItem } from ".";
 import { cartReducer, CartReducerAction } from "./reducer";
 import { MenuItem } from "@/api";
 

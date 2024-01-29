@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingCartContext } from "@/context/shopping-cart";
+import { ShoppingCartContext } from "@/shared/context/shopping-cart";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge } from "antd";
 import Link from "next/link";
@@ -17,7 +17,12 @@ export default function ViewCartButton() {
   }, [cart]);
 
   return (
-    <Link href="/cart" role="button" title="Go to cart">
+    <Link
+      href="/cart"
+      role="button"
+      title="Go to cart"
+      className="leading-normal"
+    >
       <Badge count={totalItems}>
         <ShoppingCartOutlined className="text-3xl" />
       </Badge>

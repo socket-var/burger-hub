@@ -1,6 +1,6 @@
 "use client";
 import { MenuItem } from "@/api";
-import { ShoppingCartDispatchContext } from "@/context/shopping-cart";
+import { ShoppingCartDispatchContext } from "@/shared/context/shopping-cart";
 import { Button, notification } from "antd";
 import { useContext } from "react";
 

@@ -3,16 +3,19 @@
 import {
   ShoppingCartContext,
   ShoppingCartDispatchContext,
-} from "@/context/shopping-cart";
+} from "@/shared/context/shopping-cart";
+import { ThemeContext } from "@/shared/context/theme-provider";
 import { DeleteOutlined } from "@ant-design/icons";
 import { Avatar, Button, Divider, List, Typography } from "antd";
 import Title from "antd/es/typography/Title";
+import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { useContext, useMemo } from "react";
 
 export default function CartPage() {
   const { cart } = useContext(ShoppingCartContext);
   const { deleteFromCart } = useContext(ShoppingCartDispatchContext);
+  const { isDarkTheme } = useContext(ThemeContext);
   const router = useRouter();
 
   const cartTotalPrice: number = useMemo(() => {
@@ -33,6 +36,13 @@ export default function CartPage() {
             onClick={() => {
               router.push(`/menu-item/${item.id}`);
             }}
+            className={clsx(
+              "hover:shadow-sm",
+              "hover:cursor-pointer",
+              "hover:rounded-md",
+              "!p-2",
+              isDarkTheme ? "hover:shadow-slate-400" : "hover:shadow-slate-700"
+            )}
           >
             <List.Item.Meta
               avatar={<Avatar src={item.image} size={75} />}

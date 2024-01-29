@@ -4,9 +4,9 @@ import { Inter } from "next/font/google";
 import "antd/dist/reset.css";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { NavBar } from "@/components/nav-bar";
-import { ShoppingCartProvider } from "@/context/shopping-cart";
-import { ConfigProvider } from "antd";
+import { NavBar } from "@/shared/components/nav-bar";
+import { Layout } from "antd";
+import ClientLayout from "./_components/client-layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,20 +23,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AntdRegistry>
-          <ConfigProvider
-            theme={{
-              components: {
-                Layout: {
-                  headerBg: "#f0f0f0",
-                },
-              },
-            }}
-          >
-            <ShoppingCartProvider>
+          <ClientLayout>
+            <Layout className="h-screen">
               <NavBar />
               <div className="p-4 w-4/5 mx-auto">{children}</div>
-            </ShoppingCartProvider>
-          </ConfigProvider>
+            </Layout>
+          </ClientLayout>
         </AntdRegistry>
       </body>
     </html>

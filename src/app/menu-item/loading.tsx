@@ -1,4 +1,4 @@
-import CardSkeleton from "@/components/card-skeleton";
+import CardSkeleton from "@/shared/components/card-skeleton";
 
 export default function MenuItemLoading() {
   return <CardSkeleton />;

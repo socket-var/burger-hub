@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ViewCartButton from "./";
-import { CartItem, ShoppingCartContext } from "@/context/shopping-cart";
+import ViewCartButton from ".";
+import { CartItem, ShoppingCartContext } from "@/shared/context/shopping-cart";
 
 test("Badge count is displayed as expected", () => {
   const cart: CartItem[] = [

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Header } from "antd/es/layout/layout";
 import Search from "antd/es/input/Search";
 import ViewCartButton from "./view-cart-button";
+import ThemeToggle from "./theme-toggle";
 
 export const NavBar = () => {
   return (
@@ -21,11 +22,12 @@ export const NavBar = () => {
           </Link>
         </div>
       </div>
-      <div className="flex justify-end gap-6">
-        <div className="w-64 flex items-center">
+      <div className="flex justify-end gap-6 items-center">
+        <div className="w-64 flex">
           <Search placeholder="Type to search..." />
         </div>
         <ViewCartButton />
+        <ThemeToggle />
       </div>
     </Header>
   );

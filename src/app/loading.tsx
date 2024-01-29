@@ -1,5 +1,5 @@
-import CardSkeleton from "@/components/card-skeleton";
-import ListGrid from "@/components/list-grid";
+import CardSkeleton from "@/shared/components/card-skeleton";
+import ListGrid from "@/shared/components/list-grid";
 
 export default function LoadingSkeleton() {
   return (

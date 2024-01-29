@@ -4,7 +4,8 @@ import { Card } from "antd";
 import Meta from "antd/es/card/Meta";
 import Link from "next/link";
 import { fetchMenu } from "@/api";
-import ListGrid from "@/components/list-grid";
+import ListGrid from "@/shared/components/list-grid";
+import { placeholderImageBase64 } from "@/shared/placeholder-image";
 
 export default async function Home() {
   const menuList = await fetchMenu();
@@ -24,6 +25,7 @@ export default async function Home() {
                   width={300}
                   height={300}
                   priority
+                  placeholder={placeholderImageBase64}
                 />
               }
             >

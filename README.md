@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Introduction
+
+Burger Hub is a simple burger ordering web app. Can be accessed live at https://burger-hub-delta.vercel.app/
+
+### Functional requirements
+
+- A Food Menu page
+- A Menu Item detail page with the ability to add it to the shopping cart
+- Shopping cart view that displays added items and the total price of the cart with the ability to delete items
+- Theme toggle to switch between light and dark themes
+
+### Technology stack
+
+- TypeScript, React for interative UI
+- Next.js for routing, server components and component streaming, image optimization, caching and build tooling
+- Ant design and TailwindCSS for design. Responsive design is applied reasonably as well
+- Jest and react-testing-library for unit and component tests
+- Cypress for e2e tests
 
 ## Getting Started
 
-First, run the development server:
+### Running locally
+
+To run the app locally, run the following commands at the root of the project:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# setup
+$ nvm use && npm i
+
+# run dev server
+$ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production build and test
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+# create a production build
+$ npm run build
 
-## Learn More
+# run unit and component tests
+$ npm run test
 
-To learn more about Next.js, take a look at the following resources:
+# run e2e tests
+$ npm run test:e2e:ci
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technical Considerations
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- To keep the scope of the project minimal, used React Context for storing the shopping cart. So refreshing the web app will reset the shopping cart.
+- Used Server components for the Menu List page and the Menu Item page for better First Contentful Paint, better SEO and other server side rendering benefits
+- Used Next.js Image component for it's features like preventing layout shift, lazy loading images, priority fetching etc
+- Integrated Ant design's theming functionality with the app's React context for implementing light/dark theme toggle across the app
+- Added shared components like skeleton view, list grid view etc for maximum re-use across the app
+- Added a unit test for the shopping cart reducer, a component test for the view cart button and an e2e test showing the overall flow
 
-## Deploy on Vercel
+Here is the desktop performance report from Page Speed Insights:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Alt text](performance-report.png)

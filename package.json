@@ -7,10 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "cypress:open": "cypress open",
     "test": "jest",
     "test:watch": "jest --watch",
-    "cypress:open": "cypress open",
-    "e2e:test:ci": "npm run build && (npm run start & cypress run)"
+    "test:e2e:ci": "npm run build && (npm run start & cypress run)"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",

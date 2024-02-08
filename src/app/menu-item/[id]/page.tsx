@@ -1,6 +1,6 @@
 import "server-only";
 import Image from "next/image";
-import { fetchMenuItemById } from "@/api";
+import { fetchMenu, fetchMenuItemById } from "@/api";
 import AddToCartButton from "@/app/menu-item/_components/add-to-cart";
 import Title from "antd/es/typography/Title";
 import Paragraph from "antd/es/typography/Paragraph";
@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Button } from "antd";
 import { BackwardOutlined } from "@ant-design/icons";
 import { placeholderImageBase64 } from "@/shared/placeholder-image";
+import SideItems from "../_components/side-items";
 
 export default async function MenuItemContainer({
   params,
@@ -37,6 +38,7 @@ export default async function MenuItemContainer({
       <Paragraph>{item.description}</Paragraph>
       <Paragraph>Nutrition: {item.calorie}</Paragraph>
       <AddToCartButton menuItem={item} />
+      <SideItems />
     </div>
   );
 }

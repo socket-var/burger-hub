@@ -3,8 +3,8 @@ interface MenuItemPayload {
   name: string;
   price: number;
   image: string;
-  description: string;
-  calorie: number;
+  description?: string;
+  calorie?: number;
 }
 
 export type MenuItem = MenuItemPayload & { priceInDollars: number };

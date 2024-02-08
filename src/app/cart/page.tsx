@@ -74,7 +74,7 @@ export default function CartPage() {
           <Divider />
           <Typography.Text className="font-bold">
             Total price: ${" "}
-            <span data-qa="cart-total-price">{cartTotalPrice}</span>
+            <span data-qa="cart-total-price">{cartTotalPrice.toFixed(2)}</span>
           </Typography.Text>
         </>
       )}
